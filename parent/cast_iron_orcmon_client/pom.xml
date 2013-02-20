@@ -82,4 +82,10 @@
 
 		</plugins>
 	</build>
+	<scm>
+		<developerConnection>https://github.com/goharma/ci_client.git</developerConnection>
+		<connection>git://github.com/goharma/ci_client.git</connection>
+		<tag>master</tag>
+		<url>https://github.com/goharma/ci_client/tree/master/</url>
+	</scm>
 </project>
