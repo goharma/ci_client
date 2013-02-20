@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema
+	xmlns:tns="http://www.approuter.com/schemas/router/1000/NetConfig02.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	version="1.0" targetNamespace="http://www.approuter.com/schemas/router/1000/NetConfig02.xsd">
+
+	<xs:complexType name="NetworkStatus">
+		<xs:sequence>
+			<xs:element name="active" type="xs:boolean"></xs:element>
+			<xs:element name="carrierTimeout" type="xs:int"></xs:element>
+			<xs:element name="emgmt" type="tns:InterfaceStatus"></xs:element>
+			<xs:element name="edata" type="tns:InterfaceStatus"></xs:element>
+			<xs:element name="gateway" type="tns:ElementStatus"></xs:element>
+			<xs:element name="hostname" type="tns:ElementStatus"></xs:element>
+			<xs:element name="domain" type="tns:ElementStatus"></xs:element>
+			<xs:element name="search" type="tns:ElementStatus"></xs:element>
+			<xs:element name="dns" type="tns:ElementStatus"></xs:element>
+			<xs:element name="ntp" type="tns:ElementStatus"></xs:element>
+			<xs:element name="routes" type="tns:RouteStatuses"></xs:element>
+			<xs:element name="httpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="ftpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="sftpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="history" type="tns:History"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InterfaceStatus">
+		<xs:sequence>
+			<xs:element name="ipaddr" type="xs:string"></xs:element>
+			<xs:element name="netmask" type="xs:string"></xs:element>
+			<xs:element name="broadcast" type="xs:string"></xs:element>
+			<xs:element name="MACaddr" type="xs:string"></xs:element>
+			<xs:element name="fromDhcp" type="xs:boolean"></xs:element>
+			<xs:element name="leaseExp" type="xs:string"></xs:element>
+			<xs:element name="isVirtual" type="xs:boolean"></xs:element>
+			<xs:element name="linkInfoValid" type="xs:boolean"></xs:element>
+			<xs:element name="autoNegotiate" type="xs:boolean"></xs:element>
+			<xs:element name="speed" type="xs:int"></xs:element>
+			<xs:element name="fullDuplex" type="xs:boolean"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="active" type="xs:boolean"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ElementStatus">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"></xs:element>
+			<xs:element name="fromDhcp" type="xs:boolean"></xs:element>
+			<xs:element name="dhcpSource" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RouteStatuses">
+		<xs:sequence>
+			<xs:element name="route" type="tns:RouteStatus" nillable="true"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RouteStatus">
+		<xs:sequence>
+			<xs:element name="destination" type="xs:string"></xs:element>
+			<xs:element name="netmask" type="xs:string"></xs:element>
+			<xs:element name="router" type="xs:string"></xs:element>
+			<xs:element name="interface" type="xs:string"></xs:element>
+			<xs:element name="fromDhcp" type="xs:boolean"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Proxy">
+		<xs:sequence>
+			<xs:element name="host" type="xs:string"></xs:element>
+			<xs:element name="port" type="xs:string"></xs:element>
+			<xs:element name="user" type="xs:string"></xs:element>
+			<xs:element name="passwd" type="xs:string"></xs:element>
+			<xs:element name="enabled" type="xs:boolean"></xs:element>
+			<xs:element name="passwdEncoding" type="xs:string"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="History">
+		<xs:sequence>
+			<xs:element name="startAttempt" type="xs:string"></xs:element>
+			<xs:element name="started" type="xs:string"></xs:element>
+			<xs:element name="stopped" type="xs:string"></xs:element>
+			<xs:element name="stopReason" type="xs:string"></xs:element>
+			<xs:element name="current" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkType">
+		<xs:sequence>
+			<xs:element name="emgmt" type="tns:Interface"></xs:element>
+			<xs:element name="edata" type="tns:Interface"></xs:element>
+			<xs:element name="gateway" type="tns:ConfigElement"></xs:element>
+			<xs:element name="hostname" type="tns:ConfigElement"></xs:element>
+			<xs:element name="domain" type="tns:ConfigElement"></xs:element>
+			<xs:element name="search" type="tns:ConfigElement"></xs:element>
+			<xs:element name="dns" type="tns:ConfigElement"></xs:element>
+			<xs:element name="ntp" type="tns:ConfigElement"></xs:element>
+			<xs:element name="routes" type="tns:Routes"></xs:element>
+			<xs:element name="httpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="ftpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="sftpProxy" type="tns:Proxy"></xs:element>
+			<xs:element name="carrierTimeout" type="xs:int"></xs:element>
+			<xs:element name="enabled" type="xs:boolean" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Interface">
+		<xs:sequence>
+			<xs:element name="fallback" type="tns:IntfInfo"></xs:element>
+			<xs:element name="manual" type="tns:IntfInfo"></xs:element>
+			<xs:element name="useDhcp" type="xs:boolean"></xs:element>
+			<xs:element name="useDhcpRoutes" type="xs:boolean"></xs:element>
+			<xs:element name="autoNegotiate" type="xs:boolean"></xs:element>
+			<xs:element name="speed" type="xs:int"></xs:element>
+			<xs:element name="fullDuplex" type="xs:boolean"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IntfInfo">
+		<xs:sequence>
+			<xs:element name="ipaddr" type="xs:string"></xs:element>
+			<xs:element name="netmask" type="xs:string"></xs:element>
+			<xs:element name="broadcast" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigElement">
+		<xs:sequence>
+			<xs:element name="useDhcp" type="xs:boolean"></xs:element>
+			<xs:element name="dhcpSource" type="xs:string"></xs:element>
+			<xs:element name="manual" type="xs:string"></xs:element>
+			<xs:element name="fallback" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Routes">
+		<xs:sequence>
+			<xs:element name="route" type="tns:Route" nillable="true"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Route">
+		<xs:sequence>
+			<xs:element name="destination" type="xs:string"></xs:element>
+			<xs:element name="netmask" type="xs:string"></xs:element>
+			<xs:element name="router" type="xs:string"></xs:element>
+			<xs:element name="interface" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

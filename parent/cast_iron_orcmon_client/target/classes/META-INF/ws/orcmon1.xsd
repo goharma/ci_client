@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.7-b01-. --><xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/orcmon" xmlns:ns2="http://www.approuter.com/schemas/2005/1/monitoringProps/" xmlns:ns1="http://www.approuter.com/schemas/2004/1/orcmon" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.approuter.com/schemas/2008/1/orcmon">
+
+<xs:import namespace="http://www.approuter.com/schemas/2004/1/orcmon" schemaLocation="orcmon5.xsd"></xs:import>
+
+<xs:import namespace="http://www.approuter.com/schemas/2005/1/monitoringProps/" schemaLocation="orcmon3.xsd"></xs:import>
+
+<xs:element name="Exception" type="tns:Exception"></xs:element>
+
+<xs:element name="getJobCount" type="tns:getJobCount"></xs:element>
+
+<xs:element name="getJobCountResponse" type="tns:getJobCountResponse"></xs:element>
+
+<xs:element name="getJobDetails" type="tns:getJobDetails"></xs:element>
+
+<xs:element name="getJobDetailsResponse" type="tns:getJobDetailsResponse"></xs:element>
+
+<xs:element name="getMonitoringProperties" type="tns:getMonitoringProperties"></xs:element>
+
+<xs:element name="getMonitoringPropertiesResponse" type="tns:getMonitoringPropertiesResponse"></xs:element>
+
+<xs:element name="purgeJobs" type="tns:purgeJobs"></xs:element>
+
+<xs:element name="purgeJobsResponse" type="tns:purgeJobsResponse"></xs:element>
+
+<xs:element name="searchJobs" type="tns:searchJobs"></xs:element>
+
+<xs:element name="searchJobsResponse" type="tns:searchJobsResponse"></xs:element>
+
+<xs:element name="sessionId" nillable="true" type="xs:string"></xs:element>
+
+<xs:element name="setMonitoringProperties" type="tns:setMonitoringProperties"></xs:element>
+
+<xs:element name="setMonitoringPropertiesResponse" type="tns:setMonitoringPropertiesResponse"></xs:element>
+
+<xs:complexType name="purgeJobs">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="orchName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobKey" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="minStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="maxStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="status" type="ns1:orcMonJobStatus" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="exportJobs" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="purgeJobsResponse">
+<xs:sequence>
+<xs:element name="jobs" type="ns1:orcMonJob" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonitoringProperties">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonitoringPropertiesResponse">
+<xs:sequence>
+<xs:element name="properties" type="ns2:OrcMonPropsType" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchJobs">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="orchName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobKey" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="minStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="maxStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="status" type="ns1:orcMonJobStatus" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="page" type="xs:int" form="qualified"></xs:element>
+<xs:element name="pageSize" type="xs:int" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchJobsResponse">
+<xs:sequence>
+<xs:element name="jobs" type="ns1:orcMonJob" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setMonitoringProperties">
+<xs:sequence>
+<xs:element name="properties" type="ns2:OrcMonPropsType" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setMonitoringPropertiesResponse">
+<xs:sequence>
+<xs:element name="messages" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getJobDetails">
+<xs:sequence>
+<xs:element name="jobId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getJobDetailsResponse">
+<xs:sequence>
+<xs:element name="events" type="ns1:orcMonEventWrapper" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getJobCount">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="orchName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="jobKey" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="minStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="maxStartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="status" type="ns1:orcMonJobStatus" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getJobCountResponse">
+<xs:sequence>
+<xs:element name="jobCount" type="xs:int" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

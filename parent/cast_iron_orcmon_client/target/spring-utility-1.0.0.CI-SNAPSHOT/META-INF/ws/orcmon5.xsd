@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schemas/2004/1/orcmon"
+	xmlns:ns2="http://www.approuter.com/schemas/2008/1/lognotif/types"
+	xmlns:ns1="http://www.approuter.com/schemas/2004/1/orcmon/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" version="1.0"
+	targetNamespace="http://www.approuter.com/schemas/2004/1/orcmon">
+
+	<xs:import namespace="http://www.approuter.com/schemas/2004/1/orcmon/"
+		schemaLocation="orcmon4.xsd"></xs:import>
+
+	<xs:import namespace="http://www.approuter.com/schemas/2008/1/lognotif/types"
+		schemaLocation="orcmon2.xsd"></xs:import>
+
+	<xs:complexType name="orcMonJob">
+		<xs:sequence>
+			<xs:element name="event" type="tns:orcMonKeyForEvents"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="key" type="tns:orcMonKeyForKeys"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="endTime" type="xs:dateTime"></xs:attribute>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="path" type="xs:string"></xs:attribute>
+		<xs:attribute name="startTime" type="xs:dateTime"></xs:attribute>
+		<xs:attribute name="status" type="xs:int" use="required"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="orcMonKeyForEvents">
+		<xs:sequence>
+			<xs:element name="eventType" type="ns1:LoggedEventType"></xs:element>
+			<xs:element name="variable" type="tns:orcMonKeyForVariables"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="seqNum" type="xs:int" use="required"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="orcMonKeyForVariables">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="orcMonKeyForKeys">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="isPrimary" type="xs:boolean" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="orcMonEventWrapper">
+		<xs:sequence>
+			<xs:element name="activityName" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="defaultName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="elapsedTime" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="endTime" type="xs:anySimpleType"
+				minOccurs="0"></xs:element>
+			<xs:element name="events" type="tns:event" minOccurs="0"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="logLevel" type="ns2:logLevel" minOccurs="0"></xs:element>
+			<xs:element name="loggedEvent" type="ns1:LoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="moduleName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="nodeName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="startTime" type="xs:anySimpleType"
+				minOccurs="0"></xs:element>
+			<xs:element name="variables" type="ns1:SaveVarsLoggedEventType"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="event">
+		<xs:sequence>
+			<xs:element name="levelValue" type="xs:int"></xs:element>
+			<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="orcMonJobStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="success"></xs:enumeration>
+			<xs:enumeration value="errored"></xs:enumeration>
+			<xs:enumeration value="running"></xs:enumeration>
+			<xs:enumeration value="cancelling"></xs:enumeration>
+			<xs:enumeration value="terminated"></xs:enumeration>
+			<xs:enumeration value="cancelled"></xs:enumeration>
+			<xs:enumeration value="suspended"></xs:enumeration>
+			<xs:enumeration value="crashed"></xs:enumeration>
+			<xs:enumeration value="suspending"></xs:enumeration>
+			<xs:enumeration value="unknown"></xs:enumeration>
+			<xs:enumeration value="all"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

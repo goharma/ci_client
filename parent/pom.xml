@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ci_client</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>parent</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <modules>
+    <module>assembly</module>
+    <module>cast_iron_orcmon_client</module>
+    <module>cast_iron_security_client</module>
+    <module>castiron_jar</module>
+  </modules>
+  <scm>
+  	<connection>http://koy-test.googlecode.com/svn/trunk/</connection>
+  	<developerConnection>https://koy-test.googlecode.com/svn/trunk/</developerConnection>
+  	<tag>trunk</tag>
+  	<url>http://code.google.com/p/koy-test/source/browse/</url>
+  </scm>
+</project>

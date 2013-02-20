@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.7-b01-. --><xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/lognotif" xmlns:ns1="http://www.approuter.com/schemas/2008/1/lognotif/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.approuter.com/schemas/2008/1/lognotif">
+
+<xs:import namespace="http://www.approuter.com/schemas/2008/1/lognotif/types" schemaLocation="lognotif1.xsd"></xs:import>
+
+<xs:element name="createNotificationPolicy" type="tns:createNotificationPolicy"></xs:element>
+
+<xs:element name="createNotificationPolicyResponse" type="tns:createNotificationPolicyResponse"></xs:element>
+
+<xs:element name="deleteNotificationPolicy" type="tns:deleteNotificationPolicy"></xs:element>
+
+<xs:element name="deleteNotificationPolicyResponse" type="tns:deleteNotificationPolicyResponse"></xs:element>
+
+<xs:element name="getEmailEndpoint" type="tns:getEmailEndpoint"></xs:element>
+
+<xs:element name="getEmailEndpointResponse" type="tns:getEmailEndpointResponse"></xs:element>
+
+<xs:element name="getLogCount" type="tns:getLogCount"></xs:element>
+
+<xs:element name="getLogCountResponse" type="tns:getLogCountResponse"></xs:element>
+
+<xs:element name="getLogLevel" type="tns:getLogLevel"></xs:element>
+
+<xs:element name="getLogLevelResponse" type="tns:getLogLevelResponse"></xs:element>
+
+<xs:element name="getNotificationPolicies" type="tns:getNotificationPolicies"></xs:element>
+
+<xs:element name="getNotificationPoliciesResponse" type="tns:getNotificationPoliciesResponse"></xs:element>
+
+<xs:element name="getNotificationPolicy" type="tns:getNotificationPolicy"></xs:element>
+
+<xs:element name="getNotificationPolicyResponse" type="tns:getNotificationPolicyResponse"></xs:element>
+
+<xs:element name="getSnmpEndpoint" type="tns:getSnmpEndpoint"></xs:element>
+
+<xs:element name="getSnmpEndpointResponse" type="tns:getSnmpEndpointResponse"></xs:element>
+
+<xs:element name="searchLogs" type="tns:searchLogs"></xs:element>
+
+<xs:element name="searchLogsResponse" type="tns:searchLogsResponse"></xs:element>
+
+<xs:element name="sessionId" nillable="true" type="xs:string"></xs:element>
+
+<xs:element name="setEmailEndpoint" type="tns:setEmailEndpoint"></xs:element>
+
+<xs:element name="setEmailEndpointResponse" type="tns:setEmailEndpointResponse"></xs:element>
+
+<xs:element name="setLogLevel" type="tns:setLogLevel"></xs:element>
+
+<xs:element name="setLogLevelResponse" type="tns:setLogLevelResponse"></xs:element>
+
+<xs:element name="setSnmpEndpoint" type="tns:setSnmpEndpoint"></xs:element>
+
+<xs:element name="setSnmpEndpointResponse" type="tns:setSnmpEndpointResponse"></xs:element>
+
+<xs:complexType name="getEmailEndpoint">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEmailEndpointResponse">
+<xs:sequence>
+<xs:element name="emailEndpoint" type="tns:emailEndpoint" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="emailEndpoint">
+<xs:sequence>
+<xs:element name="active" type="xs:boolean"></xs:element>
+<xs:element name="credentials" type="tns:credentials" minOccurs="0"></xs:element>
+<xs:element name="host" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="port" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="sender" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="subject" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="credentials">
+<xs:sequence>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="user" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSnmpEndpoint">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSnmpEndpointResponse">
+<xs:sequence>
+<xs:element name="snmpEndpoint" type="tns:snmpEndpoint" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="snmpEndpoint">
+<xs:sequence>
+<xs:element name="active" type="xs:boolean"></xs:element>
+<xs:element name="community" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="host" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createNotificationPolicy">
+<xs:sequence>
+<xs:element name="name" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="logComponent" type="ns1:logComponent" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="logLevel" type="ns1:logLevel" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="emailAddresses" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="isSnmp" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createNotificationPolicyResponse">
+<xs:sequence>
+<xs:element name="policyId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteNotificationPolicy">
+<xs:sequence>
+<xs:element name="policyId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteNotificationPolicyResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setEmailEndpoint">
+<xs:sequence>
+<xs:element name="emailEndpoint" type="tns:emailEndpoint" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setEmailEndpointResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNotificationPolicy">
+<xs:sequence>
+<xs:element name="policyId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNotificationPolicyResponse">
+<xs:sequence>
+<xs:element name="notificationPolicy" type="tns:notificationPolicy" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notificationPolicy">
+<xs:sequence>
+<xs:element name="emailAddresses" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="envId" type="tns:guid" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:long"></xs:element>
+<xs:element name="logComponent" type="ns1:logComponent" minOccurs="0"></xs:element>
+<xs:element name="logLevel" type="ns1:logLevel" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="snmp" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guid">
+<xs:sequence>
+<xs:element name="guidString" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setLogLevel">
+<xs:sequence>
+<xs:element name="logComponent" type="ns1:logComponent" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="logLevel" type="ns1:logLevel" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setLogLevelResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNotificationPolicies">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNotificationPoliciesResponse">
+<xs:sequence>
+<xs:element name="notificationPolicies" type="tns:notificationPolicy" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogCount">
+<xs:sequence>
+<xs:element name="logComponent" type="ns1:logComponent" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="logLevel" type="ns1:logLevel" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="maxDaysOld" type="xs:int" form="qualified"></xs:element>
+<xs:element name="status" type="tns:logStatus" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogCountResponse">
+<xs:sequence>
+<xs:element name="logCount" type="xs:int" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchLogs">
+<xs:sequence>
+<xs:element name="logComponent" type="ns1:logComponent" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="logLevel" type="ns1:logLevel" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="maxDaysOld" type="xs:int" form="qualified"></xs:element>
+<xs:element name="status" type="tns:logStatus" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="page" type="xs:int" form="qualified"></xs:element>
+<xs:element name="pageSize" type="xs:int" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchLogsResponse">
+<xs:sequence>
+<xs:element name="logs" type="ns1:log" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogLevel">
+<xs:sequence>
+<xs:element name="logComponent" type="ns1:logComponent" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogLevelResponse">
+<xs:sequence>
+<xs:element name="logLevel" type="ns1:logLevel" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setSnmpEndpoint">
+<xs:sequence>
+<xs:element name="snmpEndpoint" type="tns:snmpEndpoint" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setSnmpEndpointResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="logStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="resolved"></xs:enumeration>
+<xs:enumeration value="unresolved"></xs:enumeration>
+<xs:enumeration value="all"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

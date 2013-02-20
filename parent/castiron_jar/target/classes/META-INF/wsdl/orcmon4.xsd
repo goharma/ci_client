@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schemas/2004/1/orcmon/"
+	xmlns:ns1="http://www.approuter.com/schema/router/1000/logging.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	version="1.0" targetNamespace="http://www.approuter.com/schemas/2004/1/orcmon/">
+
+	<xs:import namespace="http://www.approuter.com/schema/router/1000/logging.xsd"
+		schemaLocation="orcmon6.xsd"></xs:import>
+
+	<xs:complexType name="LoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskStartLoggedEvent" type="tns:TaskStartLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="taskEndLoggedEvent" type="tns:TaskEndLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityStartLoggedEvent" type="tns:ActivityStartLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityEndLoggedEvent" type="tns:ActivityEndLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="saveVarsLoggedEvent" type="tns:SaveVarsLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityEventLoggedEvent" type="tns:ActivityEventLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="setStatusLoggedEvent" type="tns:SetStatusLoggedEventType"
+				minOccurs="0"></xs:element>
+			<xs:element name="saveKeyLoggedEvent" type="tns:SaveKeyLoggedEventType"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TaskStartLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="time" type="xs:dateTime"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TaskEndLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="time" type="xs:dateTime"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActivityStartLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="activityPath" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityId" type="xs:int"></xs:element>
+			<xs:element name="time" type="xs:dateTime"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActivityEndLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="activityPath" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityId" type="xs:int"></xs:element>
+			<xs:element name="time" type="xs:dateTime"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SaveVarsLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="activityPath" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityId" type="xs:int"></xs:element>
+			<xs:element name="variableName" type="xs:string"
+				maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActivityEventLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="activityPath" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="activityId" type="xs:int"></xs:element>
+			<xs:element name="event" type="ns1:Event"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetStatusLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="status" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SaveKeyLoggedEventType">
+		<xs:sequence>
+			<xs:element name="taskId" type="xs:string"></xs:element>
+			<xs:element name="sequenceNumber" type="xs:int"></xs:element>
+			<xs:element name="key" type="tns:KeyValue"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="KeyValue">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="isPrimary" type="xs:boolean"></xs:attribute>
+	</xs:complexType>
+</xs:schema>

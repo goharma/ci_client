@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/staging"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://www.approuter.com/schemas/2008/1/staging">
+
+	<xs:element name="isStagingDatabaseStarted" type="tns:isStagingDatabaseStarted"></xs:element>
+
+	<xs:element name="isStagingDatabaseStartedResponse" type="tns:isStagingDatabaseStartedResponse"></xs:element>
+
+	<xs:element name="sessionId" nillable="true" type="xs:string"></xs:element>
+
+	<xs:element name="startStagingDatabase" type="tns:startStagingDatabase"></xs:element>
+
+	<xs:element name="startStagingDatabaseResponse" type="tns:startStagingDatabaseResponse"></xs:element>
+
+	<xs:element name="stopStagingDatabase" type="tns:stopStagingDatabase"></xs:element>
+
+	<xs:element name="stopStagingDatabaseResponse" type="tns:stopStagingDatabaseResponse"></xs:element>
+
+	<xs:complexType name="stopStagingDatabase">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="stopStagingDatabaseResponse">
+		<xs:sequence>
+			<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="startStagingDatabase">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="startStagingDatabaseResponse">
+		<xs:sequence>
+			<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="isStagingDatabaseStarted">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="isStagingDatabaseStartedResponse">
+		<xs:sequence>
+			<xs:element name="isStarted" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

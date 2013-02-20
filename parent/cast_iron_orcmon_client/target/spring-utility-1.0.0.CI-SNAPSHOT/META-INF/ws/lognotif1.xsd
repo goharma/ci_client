@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.7-b01-. --><xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/lognotif/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.approuter.com/schemas/2008/1/lognotif/types">
+
+<xs:complexType name="log">
+<xs:sequence>
+<xs:element name="system" type="tns:logComponent" minOccurs="0"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:long"></xs:element>
+<xs:element name="job" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="level" type="tns:logLevel" minOccurs="0"></xs:element>
+<xs:element name="orchestration" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="resolvedBy" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="resolvedOn" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="logComponent">
+<xs:restriction base="xs:string">
+<xs:enumeration value="hardware"></xs:enumeration>
+<xs:enumeration value="resources"></xs:enumeration>
+<xs:enumeration value="network"></xs:enumeration>
+<xs:enumeration value="security"></xs:enumeration>
+<xs:enumeration value="orchestration"></xs:enumeration>
+<xs:enumeration value="deployment"></xs:enumeration>
+<xs:enumeration value="all"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="logLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="critical"></xs:enumeration>
+<xs:enumeration value="error"></xs:enumeration>
+<xs:enumeration value="warning"></xs:enumeration>
+<xs:enumeration value="info"></xs:enumeration>
+<xs:enumeration value="all"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

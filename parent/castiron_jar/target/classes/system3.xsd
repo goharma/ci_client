@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/system"
+	xmlns:ns2="http://www.approuter.com/schemas/router/1000/NetConfig02.xsd"
+	xmlns:ns1="http://www.approuter.com/schemas/2008/1/util/types"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://www.approuter.com/schemas/2008/1/system">
+
+	<xs:import namespace="http://www.approuter.com/schemas/2008/1/util/types"
+		schemaLocation="system2.xsd"></xs:import>
+
+	<xs:import
+		namespace="http://www.approuter.com/schemas/router/1000/NetConfig02.xsd"
+		schemaLocation="system1.xsd"></xs:import>
+
+	<xs:element name="Exception" type="tns:Exception"></xs:element>
+
+	<xs:element name="downloadPostmortem" type="tns:downloadPostmortem"></xs:element>
+
+	<xs:element name="downloadPostmortemResponse" type="tns:downloadPostmortemResponse"></xs:element>
+
+	<xs:element name="executeCommand" type="tns:executeCommand"></xs:element>
+
+	<xs:element name="executeCommandResponse" type="tns:executeCommandResponse"></xs:element>
+
+	<xs:element name="getApplianceName" type="tns:getApplianceName"></xs:element>
+
+	<xs:element name="getApplianceNameResponse" type="tns:getApplianceNameResponse"></xs:element>
+
+	<xs:element name="getNetworkConfiguration" type="tns:getNetworkConfiguration"></xs:element>
+
+	<xs:element name="getNetworkConfigurationResponse" type="tns:getNetworkConfigurationResponse"></xs:element>
+
+	<xs:element name="getSystemInfo" type="tns:getSystemInfo"></xs:element>
+
+	<xs:element name="getSystemInfoResponse" type="tns:getSystemInfoResponse"></xs:element>
+
+	<xs:element name="sessionId" nillable="true" type="xs:string"></xs:element>
+
+	<xs:element name="setApplianceName" type="tns:setApplianceName"></xs:element>
+
+	<xs:element name="setApplianceNameResponse" type="tns:setApplianceNameResponse"></xs:element>
+
+	<xs:element name="setNetworkConfiguration" type="tns:setNetworkConfiguration"></xs:element>
+
+	<xs:element name="setNetworkConfigurationResponse" type="tns:setNetworkConfigurationResponse"></xs:element>
+
+	<xs:complexType name="executeCommand">
+		<xs:sequence>
+			<xs:element name="command" type="tns:systemCommand" form="qualified"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="executeCommandResponse">
+		<xs:sequence>
+			<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="setApplianceName">
+		<xs:sequence>
+			<xs:element name="applianceName" type="xs:string" form="qualified"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="setApplianceNameResponse">
+		<xs:sequence>
+			<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="downloadPostmortem">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="downloadPostmortemResponse">
+		<xs:sequence>
+			<xs:element xmlns:ns3="http://www.w3.org/2005/05/xmlmime"
+				name="postmortem" ns3:expectedContentTypes="application/x-tar-gz"
+				type="xs:base64Binary" form="qualified" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Exception">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getApplianceName">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getApplianceNameResponse">
+		<xs:sequence>
+			<xs:element name="applianceName" type="xs:string" form="qualified"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getSystemInfo">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getSystemInfoResponse">
+		<xs:sequence>
+			<xs:element name="systemInfo" type="ns1:nameValuePair"
+				form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getNetworkConfiguration">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getNetworkConfigurationResponse">
+		<xs:sequence>
+			<xs:element name="networkStatus" type="ns2:NetworkStatus"
+				form="qualified" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="setNetworkConfiguration">
+		<xs:sequence>
+			<xs:element name="networkType" type="ns2:NetworkType"
+				form="qualified" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="setNetworkConfigurationResponse">
+		<xs:sequence>
+			<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="systemCommand">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="removeJobHistory"></xs:enumeration>
+			<xs:enumeration value="removeProjects"></xs:enumeration>
+			<xs:enumeration value="removeRunningJobs"></xs:enumeration>
+			<xs:enumeration value="generatePostmortem"></xs:enumeration>
+			<xs:enumeration value="restart"></xs:enumeration>
+			<xs:enumeration value="reboot"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

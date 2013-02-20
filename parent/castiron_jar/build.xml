@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Generate WS Client Jars">
+	<property name="jaxws.lib.dir" location="Z:/Apps/ThirdParty/jaxws-ri/lib" /><!-- TODO: Need better location -->
+	<property name="ws.gen.bin" value="bin" />
+	<property name="host" value="new-host-5" />
+
+	<path id="jaxws-classpath">
+		<fileset dir="${jaxws.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+		<classpath>
+			<path refid="jaxws-classpath" />
+		</classpath>
+	</taskdef>
+
+
+	<target name="clean">
+
+	</target>
+
+	<target name="init">
+		<mkdir dir="${ws.gen.bin}" />
+	</target>
+
+	<target name="build_all" depends="clean, init">
+		<antcall target="generic">
+			<param name="thing" value="deployment" />
+		</antcall>
+		<antcall target="generic">
+			<param name="thing" value="lognotif" />
+		</antcall>
+		<antcall target="generic">
+			<param name="thing" value="orcmon" />
+		</antcall>
+		<antcall target="generic">
+			<param name="thing" value="security" />
+		</antcall>
+		<antcall target="generic">
+			<param name="thing" value="staging" />
+		</antcall>
+		<antcall target="generic">
+			<param name="thing" value="system" />
+		</antcall>
+	</target>
+
+	<target name="generic" depends="clean, init">
+		<wsimport wsdl="wsdl/${thing}.wsdl" destdir="${ws.gen.bin}"
+			sourcedestdir="src" keep="true" extension="true" verbose="true"
+			wsdllocation="/META-INF/wsdl/${thing}.wsdl"
+			/>		
+	</target>
+
+</project>

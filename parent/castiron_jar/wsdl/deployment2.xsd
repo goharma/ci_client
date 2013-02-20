@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.7-b01-. --><xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/deployment/types" xmlns:ns1="http://www.approuter.com/schemas/2008/1/deployment" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.approuter.com/schemas/2008/1/deployment/types">
+
+<xs:import namespace="http://www.approuter.com/schemas/2008/1/deployment" schemaLocation="deployment3.xsd"></xs:import>
+
+<xs:complexType name="downtimeRule">
+<xs:sequence>
+<xs:element name="configUrl" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="downtimeType" type="tns:downtimeType" minOccurs="0"></xs:element>
+<xs:element name="envId" type="ns1:guid" minOccurs="0"></xs:element>
+<xs:element name="isActive" type="xs:boolean"></xs:element>
+<xs:element name="repeatInterval" type="xs:int"></xs:element>
+<xs:element name="repeatType" type="tns:repeatType" minOccurs="0"></xs:element>
+<xs:element name="repeatingRule" type="xs:boolean"></xs:element>
+<xs:element name="restartDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="ruleId" type="xs:long"></xs:element>
+<xs:element name="stopDate" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="downtimeType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="stop"></xs:enumeration>
+<xs:enumeration value="stopAndCancel"></xs:enumeration>
+<xs:enumeration value="suspend"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="repeatType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"></xs:enumeration>
+<xs:enumeration value="daily"></xs:enumeration>
+<xs:enumeration value="weekly"></xs:enumeration>
+<xs:enumeration value="monthly"></xs:enumeration>
+<xs:enumeration value="yearly"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

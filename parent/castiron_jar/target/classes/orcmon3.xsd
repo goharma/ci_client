@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schemas/2005/1/monitoringProps/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	version="1.0" targetNamespace="http://www.approuter.com/schemas/2005/1/monitoringProps/">
+
+	<xs:complexType name="OrcMonPropsType">
+		<xs:sequence>
+			<xs:element name="purging" type="tns:PurgingType"
+				minOccurs="0"></xs:element>
+			<xs:element name="archiving" type="tns:ArchivingType"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="debug" type="xs:boolean"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="PurgingType">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="triggerPolling" type="xs:duration"></xs:attribute>
+		<xs:attribute name="diskFreeTrigger" type="xs:int"></xs:attribute>
+		<xs:attribute name="timeTriggerType" type="xs:string"></xs:attribute>
+		<xs:attribute name="timeTrigger" type="xs:duration"></xs:attribute>
+		<xs:attribute name="scheduledTriggerStart" type="xs:dateTime"></xs:attribute>
+		<xs:attribute name="scheduledTriggerPeriod" type="xs:int"></xs:attribute>
+		<xs:attribute name="scheduledTriggerPeriodUnit" type="xs:string"></xs:attribute>
+		<xs:attribute name="maxCompletedJobsTrigger" type="xs:int"></xs:attribute>
+		<xs:attribute name="maxErroredJobsTrigger" type="xs:int"></xs:attribute>
+		<xs:attribute name="jobType" type="xs:string"></xs:attribute>
+		<xs:attribute name="jobAge" type="xs:duration"></xs:attribute>
+		<xs:attribute name="jobCount" type="xs:int"></xs:attribute>
+		<xs:attribute name="compressionMode" type="xs:string"></xs:attribute>
+		<xs:attribute name="maxJobsCompressTrigger" type="xs:int"></xs:attribute>
+		<xs:attribute name="maxPercentRemainingJobsCompressTrigger"
+			type="xs:int"></xs:attribute>
+		<xs:attribute name="diskFreeHighWaterMark" type="xs:int"></xs:attribute>
+		<xs:attribute name="waitAfterHighWaterMark" type="xs:duration"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="ArchivingType">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="fileExport" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fileReplace" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fileDir" type="xs:string"></xs:attribute>
+		<xs:attribute name="ftpExport" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="ftpHost" type="xs:string"></xs:attribute>
+		<xs:attribute name="ftpPort" type="xs:int"></xs:attribute>
+		<xs:attribute name="ftpUsername" type="xs:string"></xs:attribute>
+		<xs:attribute name="ftpPassword" type="xs:string"></xs:attribute>
+		<xs:attribute name="ftpDir" type="xs:string"></xs:attribute>
+		<xs:attribute name="ftpExportUtilizationData" type="xs:boolean"></xs:attribute>
+	</xs:complexType>
+</xs:schema>

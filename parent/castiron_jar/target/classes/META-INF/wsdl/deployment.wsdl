@@ -1,0 +1,843 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.approuter.com/schemas/2008/1/deployment"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://www.approuter.com/schemas/2008/1/deployment"
+	name="DeploymentManager">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.approuter.com/schemas/2008/1/util/types"
+				schemaLocation="deployment1.xsd"></xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://www.approuter.com/schemas/2008/1/deployment/types"
+				schemaLocation="deployment2.xsd"></xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.approuter.com/schemas/2008/1/deployment"
+				schemaLocation="deployment3.xsd"></xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.approuter.com/schema/router/1000/security/03"
+				schemaLocation="deployment4.xsd"></xsd:import>
+		</xsd:schema>
+	</types>
+	<message name="exportRepository">
+		<part name="parameters" element="tns:exportRepository"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="exportRepositoryResponse">
+		<part name="result" element="tns:exportRepositoryResponse"></part>
+	</message>
+	<message name="Exception">
+		<part name="fault" element="tns:Exception"></part>
+	</message>
+	<message name="importRepository">
+		<part name="parameters" element="tns:importRepository"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="importRepositoryResponse">
+		<part name="result" element="tns:importRepositoryResponse"></part>
+	</message>
+	<message name="downloadProject">
+		<part name="parameters" element="tns:downloadProject"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="downloadProjectResponse">
+		<part name="result" element="tns:downloadProjectResponse"></part>
+	</message>
+	<message name="start">
+		<part name="parameters" element="tns:start"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="startResponse">
+		<part name="result" element="tns:startResponse"></part>
+	</message>
+	<message name="stopAndCancel">
+		<part name="parameters" element="tns:stopAndCancel"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="stopAndCancelResponse">
+		<part name="result" element="tns:stopAndCancelResponse"></part>
+	</message>
+	<message name="stopAndWait">
+		<part name="parameters" element="tns:stopAndWait"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="stopAndWaitResponse">
+		<part name="result" element="tns:stopAndWaitResponse"></part>
+	</message>
+	<message name="suspend">
+		<part name="parameters" element="tns:suspend"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="suspendResponse">
+		<part name="result" element="tns:suspendResponse"></part>
+	</message>
+	<message name="resume">
+		<part name="parameters" element="tns:resume"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="resumeResponse">
+		<part name="result" element="tns:resumeResponse"></part>
+	</message>
+	<message name="undeploy">
+		<part name="parameters" element="tns:undeploy"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="undeployResponse">
+		<part name="result" element="tns:undeployResponse"></part>
+	</message>
+	<message name="cancelJob">
+		<part name="parameters" element="tns:cancelJob"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="cancelJobResponse">
+		<part name="result" element="tns:cancelJobResponse"></part>
+	</message>
+	<message name="getProject">
+		<part name="parameters" element="tns:getProject"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getProjectResponse">
+		<part name="result" element="tns:getProjectResponse"></part>
+	</message>
+	<message name="getConfiguration">
+		<part name="parameters" element="tns:getConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getConfigurationResponse">
+		<part name="result" element="tns:getConfigurationResponse"></part>
+	</message>
+	<message name="createUserConfiguration">
+		<part name="parameters" element="tns:createUserConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="createUserConfigurationResponse">
+		<part name="result" element="tns:createUserConfigurationResponse"></part>
+	</message>
+	<message name="getUserConfigurations">
+		<part name="parameters" element="tns:getUserConfigurations"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getUserConfigurationsResponse">
+		<part name="result" element="tns:getUserConfigurationsResponse"></part>
+	</message>
+	<message name="getUserConfiguration">
+		<part name="parameters" element="tns:getUserConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getUserConfigurationResponse">
+		<part name="result" element="tns:getUserConfigurationResponse"></part>
+	</message>
+	<message name="deleteUserConfiguration">
+		<part name="parameters" element="tns:deleteUserConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="deleteUserConfigurationResponse">
+		<part name="result" element="tns:deleteUserConfigurationResponse"></part>
+	</message>
+	<message name="getAssetProperties">
+		<part name="parameters" element="tns:getAssetProperties"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getAssetPropertiesResponse">
+		<part name="result" element="tns:getAssetPropertiesResponse"></part>
+	</message>
+	<message name="getAssetScript">
+		<part name="parameters" element="tns:getAssetScript"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getAssetScriptResponse">
+		<part name="result" element="tns:getAssetScriptResponse"></part>
+	</message>
+	<message name="executeAssetScript">
+		<part name="parameters" element="tns:executeAssetScript"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="executeAssetScriptResponse">
+		<part name="result" element="tns:executeAssetScriptResponse"></part>
+	</message>
+	<message name="publishProject">
+		<part name="parameters" element="tns:publishProject"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="publishProjectResponse">
+		<part name="result" element="tns:publishProjectResponse"></part>
+	</message>
+	<message name="cloneConfiguration">
+		<part name="parameters" element="tns:cloneConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="cloneConfigurationResponse">
+		<part name="result" element="tns:cloneConfigurationResponse"></part>
+	</message>
+	<message name="createConfiguration">
+		<part name="parameters" element="tns:createConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="createConfigurationResponse">
+		<part name="result" element="tns:createConfigurationResponse"></part>
+	</message>
+	<message name="saveProperties">
+		<part name="parameters" element="tns:saveProperties"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="savePropertiesResponse">
+		<part name="result" element="tns:savePropertiesResponse"></part>
+	</message>
+	<message name="saveOrchestrationValues">
+		<part name="parameters" element="tns:saveOrchestrationValues"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="saveOrchestrationValuesResponse">
+		<part name="result" element="tns:saveOrchestrationValuesResponse"></part>
+	</message>
+	<message name="getRule">
+		<part name="parameters" element="tns:getRule"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getRuleResponse">
+		<part name="result" element="tns:getRuleResponse"></part>
+	</message>
+	<message name="getRules">
+		<part name="parameters" element="tns:getRules"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getRulesResponse">
+		<part name="result" element="tns:getRulesResponse"></part>
+	</message>
+	<message name="createRule">
+		<part name="parameters" element="tns:createRule"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="createRuleResponse">
+		<part name="result" element="tns:createRuleResponse"></part>
+	</message>
+	<message name="createRepeatingRule">
+		<part name="parameters" element="tns:createRepeatingRule"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="createRepeatingRuleResponse">
+		<part name="result" element="tns:createRepeatingRuleResponse"></part>
+	</message>
+	<message name="deleteRule">
+		<part name="parameters" element="tns:deleteRule"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="deleteRuleResponse">
+		<part name="result" element="tns:deleteRuleResponse"></part>
+	</message>
+	<message name="getConfigurationGroups">
+		<part name="parameters" element="tns:getConfigurationGroups"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getConfigurationGroupsResponse">
+		<part name="result" element="tns:getConfigurationGroupsResponse"></part>
+	</message>
+	<message name="setConfigurationGroups">
+		<part name="parameters" element="tns:setConfigurationGroups"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="setConfigurationGroupsResponse">
+		<part name="result" element="tns:setConfigurationGroupsResponse"></part>
+	</message>
+	<message name="getAllProjects">
+		<part name="parameters" element="tns:getAllProjects"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="getAllProjectsResponse">
+		<part name="result" element="tns:getAllProjectsResponse"></part>
+	</message>
+	<message name="deleteProject">
+		<part name="parameters" element="tns:deleteProject"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="deleteProjectResponse">
+		<part name="result" element="tns:deleteProjectResponse"></part>
+	</message>
+	<message name="deleteConfiguration">
+		<part name="parameters" element="tns:deleteConfiguration"></part>
+		<part name="sessionId" element="tns:sessionId"></part>
+	</message>
+	<message name="deleteConfigurationResponse">
+		<part name="result" element="tns:deleteConfigurationResponse"></part>
+	</message>
+	<portType name="DeploymentManager">
+		<operation name="exportRepository" parameterOrder="parameters sessionId">
+			<input message="tns:exportRepository"></input>
+			<output message="tns:exportRepositoryResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="importRepository" parameterOrder="parameters sessionId">
+			<input message="tns:importRepository"></input>
+			<output message="tns:importRepositoryResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="downloadProject" parameterOrder="parameters sessionId">
+			<input message="tns:downloadProject"></input>
+			<output message="tns:downloadProjectResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="start" parameterOrder="parameters sessionId">
+			<input message="tns:start"></input>
+			<output message="tns:startResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="stopAndCancel" parameterOrder="parameters sessionId">
+			<input message="tns:stopAndCancel"></input>
+			<output message="tns:stopAndCancelResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="stopAndWait" parameterOrder="parameters sessionId">
+			<input message="tns:stopAndWait"></input>
+			<output message="tns:stopAndWaitResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="suspend" parameterOrder="parameters sessionId">
+			<input message="tns:suspend"></input>
+			<output message="tns:suspendResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="resume" parameterOrder="parameters sessionId">
+			<input message="tns:resume"></input>
+			<output message="tns:resumeResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="undeploy" parameterOrder="parameters sessionId">
+			<input message="tns:undeploy"></input>
+			<output message="tns:undeployResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="cancelJob" parameterOrder="parameters sessionId">
+			<input message="tns:cancelJob"></input>
+			<output message="tns:cancelJobResponse"></output>
+		</operation>
+		<operation name="getProject" parameterOrder="parameters sessionId">
+			<input message="tns:getProject"></input>
+			<output message="tns:getProjectResponse"></output>
+		</operation>
+		<operation name="getConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:getConfiguration"></input>
+			<output message="tns:getConfigurationResponse"></output>
+		</operation>
+		<operation name="createUserConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:createUserConfiguration"></input>
+			<output message="tns:createUserConfigurationResponse"></output>
+		</operation>
+		<operation name="getUserConfigurations" parameterOrder="parameters sessionId">
+			<input message="tns:getUserConfigurations"></input>
+			<output message="tns:getUserConfigurationsResponse"></output>
+		</operation>
+		<operation name="getUserConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:getUserConfiguration"></input>
+			<output message="tns:getUserConfigurationResponse"></output>
+		</operation>
+		<operation name="deleteUserConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:deleteUserConfiguration"></input>
+			<output message="tns:deleteUserConfigurationResponse"></output>
+		</operation>
+		<operation name="getAssetProperties" parameterOrder="parameters sessionId">
+			<input message="tns:getAssetProperties"></input>
+			<output message="tns:getAssetPropertiesResponse"></output>
+		</operation>
+		<operation name="getAssetScript" parameterOrder="parameters sessionId">
+			<input message="tns:getAssetScript"></input>
+			<output message="tns:getAssetScriptResponse"></output>
+		</operation>
+		<operation name="executeAssetScript" parameterOrder="parameters sessionId">
+			<input message="tns:executeAssetScript"></input>
+			<output message="tns:executeAssetScriptResponse"></output>
+		</operation>
+		<operation name="publishProject" parameterOrder="parameters sessionId">
+			<input message="tns:publishProject"></input>
+			<output message="tns:publishProjectResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="cloneConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:cloneConfiguration"></input>
+			<output message="tns:cloneConfigurationResponse"></output>
+		</operation>
+		<operation name="createConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:createConfiguration"></input>
+			<output message="tns:createConfigurationResponse"></output>
+		</operation>
+		<operation name="saveProperties" parameterOrder="parameters sessionId">
+			<input message="tns:saveProperties"></input>
+			<output message="tns:savePropertiesResponse"></output>
+		</operation>
+		<operation name="saveOrchestrationValues" parameterOrder="parameters sessionId">
+			<input message="tns:saveOrchestrationValues"></input>
+			<output message="tns:saveOrchestrationValuesResponse"></output>
+		</operation>
+		<operation name="getRule" parameterOrder="parameters sessionId">
+			<input message="tns:getRule"></input>
+			<output message="tns:getRuleResponse"></output>
+		</operation>
+		<operation name="getRules" parameterOrder="parameters sessionId">
+			<input message="tns:getRules"></input>
+			<output message="tns:getRulesResponse"></output>
+		</operation>
+		<operation name="createRule" parameterOrder="parameters sessionId">
+			<input message="tns:createRule"></input>
+			<output message="tns:createRuleResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="createRepeatingRule" parameterOrder="parameters sessionId">
+			<input message="tns:createRepeatingRule"></input>
+			<output message="tns:createRepeatingRuleResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="deleteRule" parameterOrder="parameters sessionId">
+			<input message="tns:deleteRule"></input>
+			<output message="tns:deleteRuleResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="getConfigurationGroups" parameterOrder="parameters sessionId">
+			<input message="tns:getConfigurationGroups"></input>
+			<output message="tns:getConfigurationGroupsResponse"></output>
+		</operation>
+		<operation name="setConfigurationGroups" parameterOrder="parameters sessionId">
+			<input message="tns:setConfigurationGroups"></input>
+			<output message="tns:setConfigurationGroupsResponse"></output>
+		</operation>
+		<operation name="getAllProjects" parameterOrder="parameters sessionId">
+			<input message="tns:getAllProjects"></input>
+			<output message="tns:getAllProjectsResponse"></output>
+		</operation>
+		<operation name="deleteProject" parameterOrder="parameters sessionId">
+			<input message="tns:deleteProject"></input>
+			<output message="tns:deleteProjectResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+		<operation name="deleteConfiguration" parameterOrder="parameters sessionId">
+			<input message="tns:deleteConfiguration"></input>
+			<output message="tns:deleteConfigurationResponse"></output>
+			<fault message="tns:Exception" name="Exception"></fault>
+		</operation>
+	</portType>
+	<binding name="DeploymentManagerPortBinding" type="tns:DeploymentManager">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document"></soap:binding>
+		<operation name="exportRepository">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:exportRepository" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="importRepository">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:importRepository" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="downloadProject">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:downloadProject" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="start">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:start" part="sessionId" use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="stopAndCancel">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:stopAndCancel" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="stopAndWait">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:stopAndWait" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="suspend">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:suspend" part="sessionId" use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="resume">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:resume" part="sessionId" use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="undeploy">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:undeploy" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="cancelJob">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:cancelJob" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getProject">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getProject" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="createUserConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:createUserConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getUserConfigurations">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getUserConfigurations" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getUserConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getUserConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="deleteUserConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:deleteUserConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getAssetProperties">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getAssetProperties" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getAssetScript">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getAssetScript" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="executeAssetScript">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:executeAssetScript" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="publishProject">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:publishProject" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="cloneConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:cloneConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="createConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:createConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="saveProperties">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:saveProperties" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="saveOrchestrationValues">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:saveOrchestrationValues" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getRule">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getRule" part="sessionId" use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getRules">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getRules" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="createRule">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:createRule" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="createRepeatingRule">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:createRepeatingRule" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="deleteRule">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:deleteRule" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="getConfigurationGroups">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getConfigurationGroups" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="setConfigurationGroups">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:setConfigurationGroups" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="getAllProjects">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:getAllProjects" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+		</operation>
+		<operation name="deleteProject">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:deleteProject" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+		<operation name="deleteConfiguration">
+			<soap:operation soapAction=""></soap:operation>
+			<input>
+				<soap:body use="literal" parts="parameters"></soap:body>
+				<soap:header message="tns:deleteConfiguration" part="sessionId"
+					use="literal"></soap:header>
+			</input>
+			<output>
+				<soap:body use="literal"></soap:body>
+			</output>
+			<fault name="Exception">
+				<soap:fault name="Exception" use="literal"></soap:fault>
+			</fault>
+		</operation>
+	</binding>
+	<service name="DeploymentManager">
+		<port name="DeploymentManagerPort" binding="tns:DeploymentManagerPortBinding">
+			<soap:address location="deployment"></soap:address>
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. 
+	RI's version is JAX-WS RI 2.1.7-b01-. -->
+<xs:schema xmlns:tns="http://www.approuter.com/schema/router/1000/logging.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	version="1.0" targetNamespace="http://www.approuter.com/schema/router/1000/logging.xsd">
+
+	<xs:complexType name="Event">
+		<xs:sequence>
+			<xs:element name="eventId" type="xs:int"></xs:element>
+			<xs:element name="moduleId" type="xs:int"></xs:element>
+			<xs:element name="level" type="xs:int"></xs:element>
+			<xs:element name="eventTime" type="xs:dateTime"></xs:element>
+			<xs:element name="args" type="tns:Argument" nillable="true"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Argument">
+		<xs:sequence>
+			<xs:element name="type" type="xs:int"></xs:element>
+			<xs:element name="value" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

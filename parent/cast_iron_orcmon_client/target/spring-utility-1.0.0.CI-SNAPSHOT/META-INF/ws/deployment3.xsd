@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.7-b01-. --><xs:schema xmlns:tns="http://www.approuter.com/schemas/2008/1/deployment" xmlns:ns3="http://www.approuter.com/schema/router/1000/security/03" xmlns:ns2="http://www.approuter.com/schemas/2008/1/deployment/types" xmlns:ns1="http://www.approuter.com/schemas/2008/1/util/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.approuter.com/schemas/2008/1/deployment">
+
+<xs:import namespace="http://www.approuter.com/schemas/2008/1/util/types" schemaLocation="deployment1.xsd"></xs:import>
+
+<xs:import namespace="http://www.approuter.com/schemas/2008/1/deployment/types" schemaLocation="deployment2.xsd"></xs:import>
+
+<xs:import namespace="http://www.approuter.com/schema/router/1000/security/03" schemaLocation="deployment4.xsd"></xs:import>
+
+<xs:element name="Exception" type="tns:Exception"></xs:element>
+
+<xs:element name="cancelJob" type="tns:cancelJob"></xs:element>
+
+<xs:element name="cancelJobResponse" type="tns:cancelJobResponse"></xs:element>
+
+<xs:element name="cloneConfiguration" type="tns:cloneConfiguration"></xs:element>
+
+<xs:element name="cloneConfigurationResponse" type="tns:cloneConfigurationResponse"></xs:element>
+
+<xs:element name="createConfiguration" type="tns:createConfiguration"></xs:element>
+
+<xs:element name="createConfigurationResponse" type="tns:createConfigurationResponse"></xs:element>
+
+<xs:element name="createRepeatingRule" type="tns:createRepeatingRule"></xs:element>
+
+<xs:element name="createRepeatingRuleResponse" type="tns:createRepeatingRuleResponse"></xs:element>
+
+<xs:element name="createRule" type="tns:createRule"></xs:element>
+
+<xs:element name="createRuleResponse" type="tns:createRuleResponse"></xs:element>
+
+<xs:element name="createUserConfiguration" type="tns:createUserConfiguration"></xs:element>
+
+<xs:element name="createUserConfigurationResponse" type="tns:createUserConfigurationResponse"></xs:element>
+
+<xs:element name="deleteConfiguration" type="tns:deleteConfiguration"></xs:element>
+
+<xs:element name="deleteConfigurationResponse" type="tns:deleteConfigurationResponse"></xs:element>
+
+<xs:element name="deleteProject" type="tns:deleteProject"></xs:element>
+
+<xs:element name="deleteProjectResponse" type="tns:deleteProjectResponse"></xs:element>
+
+<xs:element name="deleteRule" type="tns:deleteRule"></xs:element>
+
+<xs:element name="deleteRuleResponse" type="tns:deleteRuleResponse"></xs:element>
+
+<xs:element name="deleteUserConfiguration" type="tns:deleteUserConfiguration"></xs:element>
+
+<xs:element name="deleteUserConfigurationResponse" type="tns:deleteUserConfigurationResponse"></xs:element>
+
+<xs:element name="downloadProject" type="tns:downloadProject"></xs:element>
+
+<xs:element name="downloadProjectResponse" type="tns:downloadProjectResponse"></xs:element>
+
+<xs:element name="executeAssetScript" type="tns:executeAssetScript"></xs:element>
+
+<xs:element name="executeAssetScriptResponse" type="tns:executeAssetScriptResponse"></xs:element>
+
+<xs:element name="exportRepository" type="tns:exportRepository"></xs:element>
+
+<xs:element name="exportRepositoryResponse" type="tns:exportRepositoryResponse"></xs:element>
+
+<xs:element name="getAllProjects" type="tns:getAllProjects"></xs:element>
+
+<xs:element name="getAllProjectsResponse" type="tns:getAllProjectsResponse"></xs:element>
+
+<xs:element name="getAssetProperties" type="tns:getAssetProperties"></xs:element>
+
+<xs:element name="getAssetPropertiesResponse" type="tns:getAssetPropertiesResponse"></xs:element>
+
+<xs:element name="getAssetScript" type="tns:getAssetScript"></xs:element>
+
+<xs:element name="getAssetScriptResponse" type="tns:getAssetScriptResponse"></xs:element>
+
+<xs:element name="getConfiguration" type="tns:getConfiguration"></xs:element>
+
+<xs:element name="getConfigurationGroups" type="tns:getConfigurationGroups"></xs:element>
+
+<xs:element name="getConfigurationGroupsResponse" type="tns:getConfigurationGroupsResponse"></xs:element>
+
+<xs:element name="getConfigurationResponse" type="tns:getConfigurationResponse"></xs:element>
+
+<xs:element name="getProject" type="tns:getProject"></xs:element>
+
+<xs:element name="getProjectResponse" type="tns:getProjectResponse"></xs:element>
+
+<xs:element name="getRule" type="tns:getRule"></xs:element>
+
+<xs:element name="getRuleResponse" type="tns:getRuleResponse"></xs:element>
+
+<xs:element name="getRules" type="tns:getRules"></xs:element>
+
+<xs:element name="getRulesResponse" type="tns:getRulesResponse"></xs:element>
+
+<xs:element name="getUserConfiguration" type="tns:getUserConfiguration"></xs:element>
+
+<xs:element name="getUserConfigurationResponse" type="tns:getUserConfigurationResponse"></xs:element>
+
+<xs:element name="getUserConfigurations" type="tns:getUserConfigurations"></xs:element>
+
+<xs:element name="getUserConfigurationsResponse" type="tns:getUserConfigurationsResponse"></xs:element>
+
+<xs:element name="importRepository" type="tns:importRepository"></xs:element>
+
+<xs:element name="importRepositoryResponse" type="tns:importRepositoryResponse"></xs:element>
+
+<xs:element name="publishProject" type="tns:publishProject"></xs:element>
+
+<xs:element name="publishProjectResponse" type="tns:publishProjectResponse"></xs:element>
+
+<xs:element name="resume" type="tns:resume"></xs:element>
+
+<xs:element name="resumeResponse" type="tns:resumeResponse"></xs:element>
+
+<xs:element name="saveOrchestrationValues" type="tns:saveOrchestrationValues"></xs:element>
+
+<xs:element name="saveOrchestrationValuesResponse" type="tns:saveOrchestrationValuesResponse"></xs:element>
+
+<xs:element name="saveProperties" type="tns:saveProperties"></xs:element>
+
+<xs:element name="savePropertiesResponse" type="tns:savePropertiesResponse"></xs:element>
+
+<xs:element name="sessionId" nillable="true" type="xs:string"></xs:element>
+
+<xs:element name="setConfigurationGroups" type="tns:setConfigurationGroups"></xs:element>
+
+<xs:element name="setConfigurationGroupsResponse" type="tns:setConfigurationGroupsResponse"></xs:element>
+
+<xs:element name="start" type="tns:start"></xs:element>
+
+<xs:element name="startResponse" type="tns:startResponse"></xs:element>
+
+<xs:element name="stopAndCancel" type="tns:stopAndCancel"></xs:element>
+
+<xs:element name="stopAndCancelResponse" type="tns:stopAndCancelResponse"></xs:element>
+
+<xs:element name="stopAndWait" type="tns:stopAndWait"></xs:element>
+
+<xs:element name="stopAndWaitResponse" type="tns:stopAndWaitResponse"></xs:element>
+
+<xs:element name="suspend" type="tns:suspend"></xs:element>
+
+<xs:element name="suspendResponse" type="tns:suspendResponse"></xs:element>
+
+<xs:element name="undeploy" type="tns:undeploy"></xs:element>
+
+<xs:element name="undeployResponse" type="tns:undeployResponse"></xs:element>
+
+<xs:complexType name="saveProperties">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="properties" type="ns1:mapType" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="savePropertiesResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="exportRepository">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="exportRepositoryResponse">
+<xs:sequence>
+<xs:element xmlns:ns4="http://www.w3.org/2005/05/xmlmime" name="repository" ns4:expectedContentTypes="application/x-tar-gz" type="xs:base64Binary" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserConfigurations">
+<xs:sequence>
+<xs:element name="username" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserConfigurationsResponse">
+<xs:sequence>
+<xs:element name="userConfigurations" type="tns:userConfiguration" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userConfiguration">
+<xs:sequence>
+<xs:element name="configuration" type="tns:configuration"></xs:element>
+<xs:element name="userName" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="configuration">
+<xs:sequence>
+<xs:element name="envId" type="tns:guid" minOccurs="0"></xs:element>
+<xs:element name="lastmodified" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="orchestrationValues" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="orchestrationValue" type="tns:orchestrationValue" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="projectName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="projectVersion" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="propertyValues" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="propertyValue" type="tns:propertyValue" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="state" type="tns:configurationState" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guid">
+<xs:sequence>
+<xs:element name="guidString" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orchestrationValue">
+<xs:sequence>
+<xs:element name="enabled" type="xs:boolean"></xs:element>
+<xs:element name="syncLoggingEnabled" type="xs:boolean"></xs:element>
+<xs:element name="loggingLevel" type="tns:orchestrationLoggingLevel" minOccurs="0"></xs:element>
+<xs:element name="maxJobs" type="xs:int"></xs:element>
+<xs:element name="orchestrationRelativeurl" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="state" type="tns:configurationState" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="propertyValue">
+<xs:sequence>
+<xs:element name="propertyDefaultvalue" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="propertyHidden" type="xs:boolean"></xs:element>
+<xs:element name="propertyInternal" type="xs:boolean"></xs:element>
+<xs:element name="propertyName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="value" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createConfiguration">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createConfigurationResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRule">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="stopDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="restartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="downtimeType" type="ns2:downtimeType" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRuleResponse">
+<xs:sequence>
+<xs:element name="ruleId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cloneConfiguration">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="oldConfigName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="newConfigName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cloneConfigurationResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saveOrchestrationValues">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="values" type="tns:orchestrationValue" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saveOrchestrationValuesResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRule">
+<xs:sequence>
+<xs:element name="ruleId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRuleResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllProjects">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllProjectsResponse">
+<xs:sequence>
+<xs:element name="projects" type="tns:project" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="project">
+<xs:sequence>
+<xs:element name="assets" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="asset" type="tns:asset" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="configurations" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="configuration" type="tns:configuration" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="envId" type="tns:guid" minOccurs="0"></xs:element>
+<xs:element name="lastpublished" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="orchestrations" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="orchestration" type="tns:orchestration" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="properties" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="property" type="tns:property" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="version" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asset">
+<xs:sequence>
+<xs:element name="baseobject" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="moduleid" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="orchestration" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orchestration">
+<xs:sequence>
+<xs:element name="relativeurl" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="property">
+<xs:sequence>
+<xs:element name="assetGroupExistence" type="xs:boolean" minOccurs="0"></xs:element>
+<xs:element name="assetGroupValid" type="xs:boolean" minOccurs="0"></xs:element>
+<xs:element name="defaultvalue" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="derivedobject" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="details" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="hidden" type="xs:boolean"></xs:element>
+<xs:element name="internal" type="xs:boolean"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="type" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getConfiguration">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getConfigurationResponse">
+<xs:sequence>
+<xs:element name="configuration" type="tns:configuration" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="undeploy">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="undeployResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUserConfiguration">
+<xs:sequence>
+<xs:element name="username" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUserConfigurationResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRules">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRulesResponse">
+<xs:sequence>
+<xs:element name="rules" type="ns2:downtimeRule" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stopAndCancel">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stopAndCancelResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="importRepository">
+<xs:sequence>
+<xs:element name="importType" type="tns:importType" form="qualified" minOccurs="0"></xs:element>
+<xs:element xmlns:ns5="http://www.w3.org/2005/05/xmlmime" name="repository" ns5:expectedContentTypes="application/x-tar-gz" type="xs:base64Binary" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="importRepositoryResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createUserConfiguration">
+<xs:sequence>
+<xs:element name="username" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createUserConfigurationResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAssetProperties">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="moduleId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="endpointUrl" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAssetPropertiesResponse">
+<xs:sequence>
+<xs:element name="properties" type="tns:property" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stopAndWait">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stopAndWaitResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="publishProject">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element xmlns:ns6="http://www.w3.org/2005/05/xmlmime" name="content" ns6:expectedContentTypes="application/zip" type="xs:base64Binary" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="publishProjectResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteConfiguration">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteConfigurationResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getConfigurationGroups">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getConfigurationGroupsResponse">
+<xs:sequence>
+<xs:element name="groupDisplayNames" type="ns3:Group" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserConfiguration">
+<xs:sequence>
+<xs:element name="username" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserConfigurationResponse">
+<xs:sequence>
+<xs:element name="userConfiguration" type="tns:userConfiguration" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRule">
+<xs:sequence>
+<xs:element name="ruleId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRuleResponse">
+<xs:sequence>
+<xs:element name="rule" type="ns2:downtimeRule" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadProject">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadProjectResponse">
+<xs:sequence>
+<xs:element xmlns:ns7="http://www.w3.org/2005/05/xmlmime" name="zippedProject" ns7:expectedContentTypes="application/zip" type="xs:base64Binary" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="suspend">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="suspendResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeAssetScript">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="moduleId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="endpointUrl" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="propNames" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="username" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="script" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeAssetScriptResponse">
+<xs:sequence>
+<xs:element name="result" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRepeatingRule">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="stopDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="restartDate" type="xs:dateTime" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="downtimeType" type="ns2:downtimeType" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="repeatType" type="ns2:repeatType" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="repeatInterval" type="xs:int" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRepeatingRuleResponse">
+<xs:sequence>
+<xs:element name="ruleId" type="xs:long" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAssetScript">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="moduleId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="endpointUrl" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="propNames" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="assetAction" type="tns:assetAction" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAssetScriptResponse">
+<xs:sequence>
+<xs:element name="script" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="start">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="startResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProject">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProjectResponse">
+<xs:sequence>
+<xs:element name="project" type="tns:project" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelJob">
+<xs:sequence>
+<xs:element name="jobId" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelJobResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteProject">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteProjectResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resume">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumeResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setConfigurationGroups">
+<xs:sequence>
+<xs:element name="projectName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="version" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="configName" type="xs:string" form="qualified" minOccurs="0"></xs:element>
+<xs:element name="groupIds" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setConfigurationGroupsResponse">
+<xs:sequence>
+<xs:element name="success" type="xs:boolean" form="qualified"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="orchestrationLoggingLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"></xs:enumeration>
+<xs:enumeration value="inline"></xs:enumeration>
+<xs:enumeration value="initialValuesOnly"></xs:enumeration>
+<xs:enumeration value="errorValues"></xs:enumeration>
+<xs:enumeration value="initialAndErrorValues"></xs:enumeration>
+<xs:enumeration value="all"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="configurationState">
+<xs:restriction base="xs:string">
+<xs:enumeration value="undefined"></xs:enumeration>
+<xs:enumeration value="undeployed"></xs:enumeration>
+<xs:enumeration value="running"></xs:enumeration>
+<xs:enumeration value="suspended"></xs:enumeration>
+<xs:enumeration value="suspending"></xs:enumeration>
+<xs:enumeration value="stopped"></xs:enumeration>
+<xs:enumeration value="stopping"></xs:enumeration>
+<xs:enumeration value="starting"></xs:enumeration>
+<xs:enumeration value="deploying"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="importType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="importProjects"></xs:enumeration>
+<xs:enumeration value="importUsers"></xs:enumeration>
+<xs:enumeration value="importProjectsAndUsers"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="assetAction">
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"></xs:enumeration>
+<xs:enumeration value="create"></xs:enumeration>
+<xs:enumeration value="delete"></xs:enumeration>
+<xs:enumeration value="recreate"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
